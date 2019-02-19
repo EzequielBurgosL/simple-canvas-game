@@ -1,14 +1,16 @@
-/** @type {HTMLCanvasElement} */
-var canvas = document.getElementById("runner-game");
-const context = canvas.getContext("2d");
-const canvasWidth = 350;
-const canvasHeight = 450;
+const fps = 1000/60;
 
-drawCanvas = (width, height) => {
-  canvas.width = width
-  canvas.height = height
-  context.fillStyle = "black";
-  context.fillRect(0, 0, width, height);
+window.addEventListener("keydown", keyDown, false)
+window.addEventListener("keyup",keyUp, false)
+
+function game (){
+  setInterval(() => {
+    cubeGravity();
+    cube1Movement();
+    drawCanvas(canvasObj.width, canvasObj.height);
+    component(floor.width, floor.height, floor.color, floor.x, floor.y)
+    component(cube1.width, cube1.height, cube1.color, cube1.x, cube1.y)
+  }, fps)
 }
 
-drawCanvas(canvasWidth, canvasHeight);
+game()
