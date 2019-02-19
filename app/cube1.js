@@ -47,6 +47,7 @@ function cubeGravity(){
     cube1.alreadyJumped = false;    
     cube1.ySpeed = 0;
     cube1.y = floorY - cubeHeight
+    if(ySpeed >= 6) cube1.ySpeed = (ySpeed/3)*-1
   }
 }
 
